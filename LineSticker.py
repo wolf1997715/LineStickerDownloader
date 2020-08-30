@@ -28,7 +28,7 @@ def getTextInput():
     Title = soup.find("ul" ,"mdCMN38Item01").find("div" ,"mdCMN38Item0lHead").find("p" ,"mdCMN38Item01Ttl").string #取得貼圖名字
     mainPic = soup.find("div" ,"mdCMN38Img").find("img" ,"FnImage")['src'].replace(";compress=true", "") #取得原始圖片網站，去掉壓縮php
     firstStickerHTML = soup.find("ul" ,"mdCMN09Ul FnStickerList").find("li","mdCMN09Li FnStickerPreviewItem").find("div","mdCMN09LiInner FnImage")#擷取網頁碼直到最後一層
-    firstStickerGetIndex = re.findall(r"\d{8,9}",str(firstStickerHTML))#取得8位數的貼圖編號
+    firstStickerGetIndex = re.findall(r"\d{7,9}",str(firstStickerHTML))#取得8位數的貼圖編號
     firstStickerIndex = int("".join(firstStickerGetIndex))#轉換資料型態
     StickerNum = len(soup.find("ul" ,"mdCMN09Ul FnStickerList").find_all("li","mdCMN09Li FnStickerPreviewItem"))#計算個數
     for i in range(0,StickerNum):
